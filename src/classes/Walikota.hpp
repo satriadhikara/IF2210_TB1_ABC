@@ -8,7 +8,7 @@ class Walikota : public Pemain
 {
 public:
     Walikota();
-    Walikota(string nama, int uang, int bb);
+    Walikota(int uang, int bb);
     ~Walikota();
 
     /**
@@ -17,7 +17,7 @@ public:
      * @param petani
      * @param peternak
      */
-    void tagihPajak(vector<Petani> &petani, vector<Peternak> &peternak);
+    void pungutPajak(vector<Petani> &petani, vector<Peternak> &peternak);
 
     /**
      * @brief (nanti aja)
