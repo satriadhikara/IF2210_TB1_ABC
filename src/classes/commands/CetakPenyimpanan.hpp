@@ -2,13 +2,16 @@
 #define CETAK_PENYIMPANAN_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 using namespace std;
 
 class CetakPenyimpanan : public Commands
 {
 public:
-    void run() override;
+    CetakPenyimpanan();
+    ~CetakPenyimpanan();
+    void run(Main &) override;
 };
 
 #endif

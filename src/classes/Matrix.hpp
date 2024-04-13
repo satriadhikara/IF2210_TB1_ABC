@@ -50,15 +50,140 @@ public:
     {
         return this->col;
     }
-    friend ostream &operator<<(ostream &os, const Matrix &m)
+    friend ostream &operator<<(ostream &os, Matrix &m)
     {
-        for (int i = 0; i < m->getRow(); i++)
+        int n_digit = to_string(m.getRow()).length();
+
+        for (int i = 0; i < m.getRow(); i++)
         {
-            for (int j = 0; j < m->getCol(); j++)
+            if (i == 0)
             {
-                os << m->getElmt(i, j) << " ";
+                for (int k = 0; k < m.getCol(); k++)
+                {
+                    if (k == 0)
+                    {
+                        os << "    ";
+                    }
+                    os << "    ";
+                    int temp = k;
+                    string str = "";
+                    while (temp >= 0)
+                    {
+                        str = (char)(65 + (temp % 26)) + str;
+                        temp = temp / 26 - 1;
+                    }
+                    os << str;
+                    os << " ";
+                }
+                os << " " << endl;
             }
-            os << endl;
+            for (int j = 0; j < 2; j++)
+            {
+                if (j == 0)
+                {
+                    for (int k = 0; k < m.getCol(); k++)
+                    {
+                        int temp = k;
+                        string str = "";
+                        while (temp >= 0)
+                        {
+                            str = (char)(65 + (temp % 26)) + str;
+                            temp = temp / 26 - 1;
+                        }
+                        if (k == 0)
+                        {
+                            os << " ";
+                            for (int l = 0; l < n_digit; l++)
+                            {
+                                os << " ";
+                            }
+                            os << " ";
+                        }
+                        os << "+----";
+                        for (int l = 0; l < str.length(); l++)
+                        {
+                            os << "-";
+                        }
+                    }
+                    os << "+" << endl;
+                }
+                else
+                {
+                    for (int k = 0; k < m.getCol(); k++)
+                    {
+                        int temp = k;
+                        string str = "";
+                        while (temp >= 0)
+                        {
+                            str = (char)(65 + (temp % 26)) + str;
+                            temp = temp / 26 - 1;
+                        }
+                        if (k == 0)
+                        {
+                            os << " ";
+                            for (int l = 0; l < n_digit; l++)
+                            {
+                                int temp_digit = to_string(i + 1).length();
+                                if (l < n_digit - temp_digit)
+                                {
+                                    os << "0";
+                                }
+                                else
+                                {
+                                    os << to_string(i + 1)[l - n_digit + temp_digit];
+                                }
+                            }
+                            os << " ";
+                        }
+                        if (m.getElmt(i, k) == "")
+                        {
+                            os << "|     ";
+                        }
+                        else
+                        {
+                            os << "| " << m.getElmt(i, k);
+                            for (int l = 0; l < str.length(); l++)
+                            {
+                                os << " ";
+                            }
+                        }
+                        // os << "| " << m.getElmt(i, k);
+                        // for (int l = 0; l < str.length(); l++)
+                        // {
+                        //     os << " ";
+                        // }
+                    }
+                    os << "|" << endl;
+                }
+            }
+            if (i == m.getRow() - 1)
+            {
+                for (int k = 0; k < m.getCol(); k++)
+                {
+                    int temp = k;
+                    string str = "";
+                    while (temp >= 0)
+                    {
+                        str = (char)(65 + (temp % 26)) + str;
+                        temp = temp / 26 - 1;
+                    }
+                    if (k == 0)
+                    {
+                        os << " ";
+                        for (int l = 0; l < n_digit; l++)
+                        {
+                            os << " ";
+                        }
+                        os << " ";
+                    }
+                    os << "+----";
+                    for (int l = 0; l < str.length(); l++)
+                    {
+                        os << "-";
+                    }
+                }
+                os << "+" << endl;
+            }
         }
         return os;
     }

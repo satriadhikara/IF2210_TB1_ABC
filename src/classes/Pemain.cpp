@@ -56,7 +56,7 @@ void Pemain::tambahPenyimpanan(string kode)
 
 void Pemain::cetakPenyimpanan()
 {
-    // cout << *this->penyimpanan;
+    cout << *this->penyimpanan;
 }
 
 void Pemain::makan()

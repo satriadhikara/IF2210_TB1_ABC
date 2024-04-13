@@ -1,6 +1,6 @@
 #include "Main.hpp"
 #include "./commands/Next.hpp"
-// #include "classes/commands/CetakPenyimpanan.hpp"
+#include "./commands/CetakPenyimpanan.hpp"
 // #include "classes/commands/PungutPajak.hpp"
 // #include "classes/commands/CetakLadang.hpp"
 // #include "classes/commands/CetakPeternakan.hpp"
@@ -39,7 +39,7 @@ Main::Main()
     menuController.opsiBacaState(*pemain);
 
     commands["NEXT"] = new Next();
-    // commands["CETAK_PENYIMPANAN"] = new CetakPenyimpanan();
+    commands["CETAK_PENYIMPANAN"] = new CetakPenyimpanan();
     // commands["PUNGUT_PAJAK"] = new PungutPajak();
     // commands["CETAK_LADANG"] = new CetakLadang();
     // commands["CETAK_PETERNAKAN"] = new CetakPeternakan();
@@ -86,7 +86,7 @@ void Main::runCommand(string commandInput)
     }
 }
 
-int Main::getCurrentPemain()
+int Main::getUrutanPemain()
 {
     return currentPemain;
 }
@@ -96,7 +96,12 @@ int Main::getBanyakPemain()
     return pemain->size();
 }
 
-void Main::setCurrentPemain(int currentPemain)
+void Main::setUrutanPemain(int currentPemain)
 {
     this->currentPemain = currentPemain;
+}
+
+Pemain *Main::getCurrentPemain()
+{
+    return pemain->at(currentPemain);
 }

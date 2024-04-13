@@ -35,10 +35,11 @@ public:
     ~Main();
 
     bool getIsRunning();
-    int getCurrentPemain();
+    int getUrutanPemain();
     int getBanyakPemain();
-    void setCurrentPemain(int);
+    void setUrutanPemain(int);
     void runCommand(string);
+    Pemain *getCurrentPemain();
 
     friend istream &operator>>(istream &in, Main &main);
 };
