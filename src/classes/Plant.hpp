@@ -1,0 +1,23 @@
+#ifndef PLANT_HPP
+#define PLANT_HPP
+
+#include "Items.hpp"
+
+using namespace std;
+
+class Plant : public Items
+{
+private:
+    int durationToHarvest;
+    int age;
+
+public:
+    Plant(int id, string kodeHuruf, string nama, int price, int durationToHarvest);
+    virtual ~Plant();
+
+    int getDurationToHarvest();
+    virtual void panen();
+    bool isSiapPanen();
+};
+
+#endif

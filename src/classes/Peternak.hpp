@@ -1,19 +1,23 @@
+#ifndef PETERNAK_HPP
+#define PETERNAK_HPP
+
 #include "Pemain.hpp"
-#include "Hewan.hpp"
+
 using namespace std;
 
 class Peternak : public Pemain
 {
 private:
-    vector<Hewan> hewan_ladang;
+    Matrix<string> *peternakan;
 
 public:
-    Peternak();
-    Peternak(string nama, int uang, int bb);
+    Peternak(string username, int gulden, int beratbadan);
     ~Peternak();
 
-    void menaruhHewan(const Hewan &);
-    Hewan getHewan(int id);
-    void beriMakanHewan(int id);
-    void panenHewan(int id);
+    void cetakPeternakan();
+    void ternak();
+    void kasihMakan();
+    void panen();
 };
+
+#endif

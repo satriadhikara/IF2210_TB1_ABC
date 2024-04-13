@@ -1,41 +1,34 @@
 #ifndef PEMAIN_HPP
 #define PEMAIN_HPP
 
-#include "../utils/includes.hpp"
+#include <string>
+#include <map>
+#include "Matrix.hpp"
 
 class Pemain
 {
 protected:
-    int uang;
-    int bb;
+    Matrix<string> *penyimpanan;
+
+    string username;
+    int gulden;
+    int beratbadan;
 
 public:
-    /**
-     * @brief default uang = 50, berat badan = 40
-     *
-     */
-    Pemain();
-
-    /**
-     * @brief
-     *
-     * @param uang (gulden)
-     * @param bb
-     */
-    Pemain(int uang, int bb);
-
+    Pemain(string username, int gulden, int beratbadan);
     virtual ~Pemain();
 
-    /**
-     * @brief Menampilkan matriks penyimpanan
-     *
-     */
-    virtual void showPenyimpanan();
+    string getUsername();
+    void setGulden(int gulden);
+    int getGulden();
+    void setBeratBadan(int beratbadan);
+    int getBeratBadan();
+    void tambahPenyimpanan(string kode);
+    void cetakPenyimpanan();
+    void makan();
 
-    void setUang(int uang);
-    int getUang();
-    void setBB(int bb);
-    int getBB();
+    virtual void membeli();
+    virtual void menjual();
 };
 
 #endif

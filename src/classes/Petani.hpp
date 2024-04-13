@@ -2,22 +2,21 @@
 #define PETANI_HPP
 
 #include "Pemain.hpp"
-#include "Tanaman.hpp"
+
 using namespace std;
 
 class Petani : public Pemain
 {
 private:
-    vector<Tanaman> tanaman;
+    Matrix<string> *ladang;
 
 public:
-    Petani();
-    Petani(string nama, int uang, int bb);
+    Petani(string username, int gulden, int beratbadan);
     ~Petani();
 
-    void menanam(const Tanaman &);
-    Tanaman getTanaman(int id);
-    void memanen();
+    void cetakLadang();
+    void tanam();
+    void panen();
 };
 
 #endif

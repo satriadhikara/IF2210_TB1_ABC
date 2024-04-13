@@ -1,25 +1,24 @@
 #include "Walikota.hpp"
 
-using namespace std;
-
-Walikota::Walikota() : Pemain() {}
-
-Walikota::Walikota(int uang, int bb) : Pemain(uang, bb) {}
-
-Walikota::~Walikota() {}
-
-void Walikota::pungutPajak(vector<Petani> &petani, vector<Peternak> &peternak)
+Walikota::Walikota(string username, int gulden, int beratbadan) : Pemain(username, gulden, beratbadan)
 {
+}
+
+Walikota::~Walikota()
+{
+}
+
+void Walikota::tagihPajak()
+{
+    // TODO
 }
 
 void Walikota::bangunBangunan()
 {
+    // TODO
 }
 
-void Walikota::tambahAkunPetani(vector<Petani> &petani)
+void Walikota::tambahPemain()
 {
-}
-
-void Walikota::tambahAkunPeternak(vector<Peternak> &peternak)
-{
+    // TODO
 }
