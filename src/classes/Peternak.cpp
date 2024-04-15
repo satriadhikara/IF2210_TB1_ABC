@@ -31,3 +31,8 @@ void Peternak::panen()
 {
     // TODO
 }
+
+string Peternak::getRole()
+{
+    return "Peternak";
+}

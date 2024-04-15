@@ -2,6 +2,7 @@
 #define WALIKOTA_HPP
 
 #include "Pemain.hpp"
+#include <vector>
 
 using namespace std;
 
@@ -11,7 +12,9 @@ public:
     Walikota(string username, int gulden, int beratbadan);
     ~Walikota();
 
-    void tagihPajak();
+    string getRole() override;
+
+    int tagihPajak(Pemain *&);
     void bangunBangunan();
     void tambahPemain();
 };
