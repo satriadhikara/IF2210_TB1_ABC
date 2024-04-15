@@ -40,6 +40,7 @@ public:
     void setUrutanPemain(int);
     void runCommand(string);
     Pemain *getCurrentPemain();
+    vector<Pemain *> *getPemain();
 
     friend istream &operator>>(istream &in, Main &main);
 };

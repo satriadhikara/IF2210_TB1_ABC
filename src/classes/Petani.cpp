@@ -26,3 +26,8 @@ void Petani::panen()
 {
     // TODO
 }
+
+string Petani::getRole()
+{
+    return "Petani";
+}
