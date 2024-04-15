@@ -16,6 +16,6 @@ void CetakLadang::run(Main &main)
     }
     else
     {
-        throw "Pointer pemain kosong.";
+        throw "Pemain bukan petani";
     }
 }
