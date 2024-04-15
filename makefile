@@ -3,18 +3,14 @@ CC = g++
 CFLAGS = -std=c++14
 
 SRCDIR = src
-OUTDIR = bin
-CLSDIR = $(SRCDIR)/ulasses
-UTILDIR = $(SRCDIR)/utils
+OUTDIR = .
+CLSDIR = $(SRCDIR)/classes
+CMDDIR = $(CLSDIR)/commands
 
-CLSFILES = $(wildcard $(CLSDIR)/*.cpp)
-UTILFILES = $(wildcard $(UTILDIR)/*.cpp)
+CLSFILES = $(CLSDIR)/Main.cpp $(CLSDIR)/Menu.cpp $(CLSDIR)/Pemain.cpp $(CLSDIR)/Walikota.cpp $(CLSDIR)/Peternak.cpp $(CLSDIR)/Petani.cpp 
+CMDFILES = $(CMDDIR)/Commands.cpp $(CMDDIR)/Next.cpp $(CMDDIR)/CetakPenyimpanan.cpp $(CMDDIR)/PungutPajak.cpp 
 
-all: run
-
-run: build
-	./$(OUTDIR)/main
+all: build
 
 build:
-	$(CLSFILES) $(UTILFILES)
-	$(CC) $(CFLAGS) -I include $^ $(SRCDIR)/main.cpp -o $(OUTDIR)/main
+	$(CC) $(CFLAGS) $(SRCDIR)/main.cpp $(CLSFILES) $(CMDFILES) -o $(OUTDIR)/main
