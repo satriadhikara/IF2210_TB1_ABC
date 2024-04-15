@@ -22,14 +22,15 @@ using namespace std;
 
 Main::Main()
 {
-    // try
-    // {
-    //     config.loadConfig(plantData, animalData, productData, bangunanData);
-    // }
-    // catch (const char *msg)
-    // {
-    //     cerr << "Exception: " << msg << endl;
-    // }
+    try
+    {
+        config.loadConfig(plantData, animalData, productData, bangunanData);
+    }
+    catch (const char *msg)
+    {
+        cerr << "Exception: " << msg << endl;
+    }
+
     isRunning = true;
     currentPemain = 0;
 

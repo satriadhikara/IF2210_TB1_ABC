@@ -7,10 +7,11 @@ class Product : public Items
 {
 private:
     string origin;
+    string type;
     int addedWeight;
 
 public:
-    Product(int id, string kodeHuruf, string nama, int price, string origin, int addedWeight);
+    Product(int id, string kodeHuruf, string nama, string type, int price, string origin, int addedWeight);
     ~Product();
 
     int getAddedWeight();
