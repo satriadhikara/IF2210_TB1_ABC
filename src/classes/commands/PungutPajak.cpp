@@ -1,5 +1,6 @@
 #include "PungutPajak.hpp"
 #include "../Walikota.hpp"
+#include "../../utils/Exception.hpp"
 
 #include <iostream>
 #include <map>
@@ -52,6 +53,6 @@ void PungutPajak::run(Main &main)
     }
     else
     {
-        throw "Role salah.";
+        throw PungutPajakException();
     }
 }

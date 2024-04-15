@@ -1,4 +1,5 @@
 #include "CetakPenyimpanan.hpp"
+#include "../../utils/Exception.hpp"
 
 CetakPenyimpanan::CetakPenyimpanan()
 {
@@ -17,6 +18,6 @@ void CetakPenyimpanan::run(Main &main)
     }
     else
     {
-        throw "Pointer pemain kosong.";
+        throw CetakPenyimpananException();
     }
 }

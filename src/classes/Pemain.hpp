@@ -9,7 +9,7 @@ class Pemain
 {
 protected:
     Matrix<string> *penyimpanan;
-
+    
     string username;
     int gulden;
     int beratbadan;

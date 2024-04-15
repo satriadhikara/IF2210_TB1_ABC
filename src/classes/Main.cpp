@@ -1,20 +1,20 @@
 #include "Main.hpp"
 #include "./commands/Next.hpp"
 #include "./commands/CetakPenyimpanan.hpp"
-#include "classes/commands/PungutPajak.hpp"
-#include "classes/commands/CetakLadang.hpp"
-// #include "classes/commands/CetakPeternakan.hpp"
-// #include "classes/commands/Tanam.hpp"
-// #include "classes/commands/Ternak.hpp"
-// #include "classes/commands/BangunBangunan.hpp"
-// #include "classes/commands/Makan.hpp"
-// #include "classes/commands/MemberiPangan.hpp"
-// #include "classes/commands/Membeli.hpp"
-// #include "classes/commands/Menjual.hpp"
-// #include "classes/commands/Memanen.hpp"
-// #include "classes/commands/Muat.hpp"
-// #include "classes/commands/Simpan.hpp"
-// #include "classes/commands/TambahPemain.hpp"
+#include "./commands/PungutPajak.hpp"
+#include "./commands/CetakLadang.hpp"
+#include "./commands/CetakPeternakan.hpp"
+// #include "./commands/Tanam.hpp"
+// #include "./commands/Ternak.hpp"
+// #include "./commands/BangunBangunan.hpp"
+// #include "./commands/Makan.hpp"
+// #include "./commands/MemberiPangan.hpp"
+// #include "./commands/Membeli.hpp"
+// #include "./commands/Menjual.hpp"
+// #include "./commands/Memanen.hpp"
+// #include "./commands/Muat.hpp"
+// #include "./commands/Simpan.hpp"
+// #include "./commands/TambahPemain.hpp"
 
 #include <iostream>
 
@@ -42,7 +42,7 @@ Main::Main()
     commands["CETAK_PENYIMPANAN"] = new CetakPenyimpanan();
     commands["PUNGUT_PAJAK"] = new PungutPajak();
     commands["CETAK_LADANG"] = new CetakLadang();
-    // commands["CETAK_PETERNAKAN"] = new CetakPeternakan();
+    commands["CETAK_PETERNAKAN"] = new CetakPeternakan();
     // commands["TANAM"] = new Tanam();
     // commands["TERNAK"] = new Ternak();
     // commands["BANGUN_BANGUNAN"] = new BangunBangunan();

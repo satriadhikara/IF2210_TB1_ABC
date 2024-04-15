@@ -2,13 +2,14 @@
 #define PETERNAK_HPP
 
 #include "Pemain.hpp"
+#include "Peternakan.hpp"
 
 using namespace std;
 
 class Peternak : public Pemain
 {
 private:
-    Matrix<string> *peternakan;
+    Peternakan *peternakan;
 
 public:
     Peternak(string username, int gulden, int beratbadan);
