@@ -14,6 +14,8 @@ public:
     Peternak(string username, int gulden, int beratbadan);
     ~Peternak();
 
+    string getRole() override;
+
     void cetakPeternakan();
     void ternak();
     void kasihMakan();

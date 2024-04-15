@@ -2,11 +2,14 @@
 #define PUNGUT_PAJAK_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 class PungutPajak : public Commands
 {
 public:
-    void run() override;
+    PungutPajak();
+    ~PungutPajak();
+    void run(Main &) override;
 };
 
 #endif
