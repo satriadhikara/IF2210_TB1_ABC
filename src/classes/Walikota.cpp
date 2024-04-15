@@ -1,5 +1,6 @@
 #include "Walikota.hpp"
-
+#include "Petani.hpp"
+#include "Peternak.hpp"
 Walikota::Walikota(string username, int gulden, int beratbadan) : Pemain(username, gulden, beratbadan)
 {
 }
@@ -52,9 +53,47 @@ void Walikota::bangunBangunan()
     // TODO
 }
 
-void Walikota::tambahPemain()
-{
-    // TODO
+void Walikota::tambahPemain(vector<Pemain*> &pemain) {
+    int uang = getGulden();
+    if (uang < 50) {
+        cout << "Uang tidak cukup!" << endl;
+        return;
+    }
+
+    string jenisPemain;
+    string namaPemain;
+
+    cout << "Masukkan jenis pemain: ";
+    cin >> jenisPemain;
+
+    if (jenisPemain != "peternak" && jenisPemain != "petani") {
+        cout << "Jenis pemain tidak valid!" << endl;
+        return;
+    }
+
+    cout << "Masukkan nama pemain: ";
+    cin >> namaPemain;
+
+    for (Pemain *p : pemain) {
+        if (p->getUsername() == namaPemain) {
+            cout << "Nama pemain sudah ada!" << endl;
+            return;
+        }
+    }
+
+    uang -= 50;
+    setGulden(uang);
+
+    Pemain* newPlayer;
+    if (jenisPemain == "peternak") {
+        newPlayer = new Peternak(namaPemain, 0, 0); // Membuat objek peternak
+    } else if (jenisPemain == "petani") {
+        newPlayer = new Petani(namaPemain, 0, 0); // Membuat objek petani
+    }
+    pemain.push_back(newPlayer);
+
+    cout << "Pemain baru ditambahkan!" << endl;
+    cout << "Selamat datang \"" << namaPemain << "\" di kota ini!" << endl;
 }
 
 string Walikota::getRole()

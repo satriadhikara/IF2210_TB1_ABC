@@ -2,6 +2,7 @@
 #define WALIKOTA_HPP
 
 #include "Pemain.hpp"
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -16,7 +17,7 @@ public:
 
     int tagihPajak(Pemain *&);
     void bangunBangunan();
-    void tambahPemain();
+    void tambahPemain(vector<Pemain*>&);
 };
 
 #endif
