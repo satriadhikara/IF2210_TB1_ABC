@@ -1,13 +1,13 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
-// #include "ConfigController.hpp"
+#include "ConfigController.hpp"
 #include "./commands/Commands.hpp"
-// #include "Plant.hpp"
-// #include "Animal.hpp"
-// #include "Product.hpp"
+#include "Plant.hpp"
+#include "Animal.hpp"
+#include "Product.hpp"
 #include "Pemain.hpp"
-// #include "Bangunan.hpp"
+#include "Bangunan.hpp"
 #include "Menu.hpp"
 #include <map>
 #include <vector>
@@ -17,13 +17,13 @@ using namespace std;
 class Main
 {
 private:
-    // ConfigController config;
+    ConfigController config;
     map<string, Commands *> commands;
-    // vector<Plant *> plantData;
-    // vector<Animal *> animalData;
-    // vector<Product> productData;
+    vector<Plant *> plantData;
+    vector<Animal *> animalData;
+    vector<Product> productData;
     vector<Pemain *> *pemain;
-    // vector<Bangunan> bangunanData;
+    vector<Bangunan> bangunanData;
 
     Menu menuController;
 
