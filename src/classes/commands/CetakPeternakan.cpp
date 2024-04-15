@@ -1,5 +1,6 @@
 #include "CetakPeternakan.hpp"
 #include "../Peternak.hpp"
+#include "../../utils/Exception.hpp"
 
 CetakPeternakan::CetakPeternakan(){
 
@@ -19,6 +20,6 @@ void CetakPeternakan::run(Main &main){
     }
     else
     {
-        throw "Pemain bukan peternak";
+        throw CetakPeternakanException();
     }
 }
