@@ -4,7 +4,7 @@
 
 Peternak::Peternak(string username, int gulden, int beratbadan) : Pemain(username, gulden, beratbadan)
 {
-    this->peternakan = new Matrix<string>(10, 10);
+    this->peternakan = new Peternakan(10, 10);
 }
 
 Peternak::~Peternak()
@@ -14,7 +14,7 @@ Peternak::~Peternak()
 
 void Peternak::cetakPeternakan()
 {
-    cout << this->peternakan;
+    cout << *this->peternakan;
 }
 
 void Peternak::ternak()

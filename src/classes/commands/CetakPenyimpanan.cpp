@@ -1,5 +1,5 @@
 #include "CetakPenyimpanan.hpp"
-#include "../Exception.hpp"
+#include "../../utils/Exception.hpp"
 
 CetakPenyimpanan::CetakPenyimpanan()
 {

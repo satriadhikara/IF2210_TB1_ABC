@@ -1,6 +1,6 @@
 #include "PungutPajak.hpp"
 #include "../Walikota.hpp"
-#include "../Exception.hpp"
+#include "../../utils/Exception.hpp"
 
 #include <iostream>
 #include <map>

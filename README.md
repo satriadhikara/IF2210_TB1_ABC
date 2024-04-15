@@ -51,7 +51,7 @@ $ make
 2. Enter the following command to run the program.
 
 ```
- $ make ./main
+ $ ./main
 ```
 ## Authors
 
