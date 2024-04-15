@@ -14,7 +14,7 @@
 // #include "./commands/Memanen.hpp"
 // #include "./commands/Muat.hpp"
 // #include "./commands/Simpan.hpp"
-// #include "./commands/TambahPemain.hpp"
+#include "./commands/TambahPemain.hpp"
 
 #include <iostream>
 
@@ -54,7 +54,7 @@ Main::Main()
     // commands["PANEN"] = new Memanen();
     // commands["MUAT"] = new Muat();
     // commands["SIMPAN"] = new Simpan();
-    // commands["TAMBAH_PEMAIN"] = new TambahPemain();
+    commands["TAMBAH_PEMAIN"] = new TambahPemain();
 }
 
 Main::~Main()

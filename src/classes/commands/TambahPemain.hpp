@@ -2,11 +2,14 @@
 #define TAMBAH_PEMAIN_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 class TambahPemain : public Commands
 {
 public:
-    void run() override;
+    TambahPemain();
+    ~TambahPemain();
+    void run(Main& ) override;
 };
 
 #endif
