@@ -1,8 +1,8 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 
-using namespace std;
 #include <ostream>
+using namespace std;
 
 template <class T>
 class Matrix
