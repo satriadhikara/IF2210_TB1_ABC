@@ -1,5 +1,6 @@
 #include "CetakLadang.hpp"
 #include "../Petani.hpp"
+#include "../../utils/Exception.hpp"
 
 CetakLadang::CetakLadang() {}
 
@@ -16,6 +17,6 @@ void CetakLadang::run(Main &main)
     }
     else
     {
-        throw "Pemain bukan petani";
+        throw CetakLadangException();
     }
 }

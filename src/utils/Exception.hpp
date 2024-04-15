@@ -20,4 +20,19 @@ struct PungutPajakException : public exception
     }
 };
 
+struct CetakLadangException : public exception
+{
+    const char *what() const throw()
+    {
+        return "Pemain bukan petani.\n";
+    }
+};
+
+struct CetakPeternakanException : public exception
+{
+    const char *what() const throw()
+    {
+        return "Pemain bukan peternak.\n";
+    }
+};
 #endif
