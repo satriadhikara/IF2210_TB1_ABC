@@ -16,6 +16,8 @@ public:
     Petani(string username, int gulden, int beratbadan);
     ~Petani();
 
+    string getRole() override;
+
     void cetakLadang();
     void tanam();
     void panen();

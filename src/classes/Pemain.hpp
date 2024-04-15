@@ -29,6 +29,7 @@ public:
 
     virtual void membeli();
     virtual void menjual();
+    virtual string getRole() = 0;
 };
 
 #endif
