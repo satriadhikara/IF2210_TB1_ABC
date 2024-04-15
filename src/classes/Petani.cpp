@@ -4,7 +4,7 @@
 
 Petani::Petani(string username, int gulden, int beratbadan) : Pemain(username, gulden, beratbadan)
 {
-    this->ladang = new Matrix<string>(10, 10);
+    this->ladang = new Ladang(10, 10);
 }
 
 Petani::~Petani()
@@ -14,7 +14,7 @@ Petani::~Petani()
 
 void Petani::cetakLadang()
 {
-    // cout << *this->ladang;
+    cout << *this->ladang;
 }
 
 void Petani::tanam()
