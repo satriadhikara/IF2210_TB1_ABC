@@ -1,8 +1,9 @@
 #include "Product.hpp"
 
-Product::Product(int id, string kodeHuruf, string nama, int price, string origin, int addedWeight) : Items(id, kodeHuruf, nama, price)
+Product::Product(int id, string kodeHuruf, string nama, string type, int price, string origin, int addedWeight) : Items(id, kodeHuruf, nama, price)
 {
     this->origin = origin;
+    this->type = type;
     this->addedWeight = addedWeight;
 }
 
