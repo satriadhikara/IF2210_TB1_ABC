@@ -2,13 +2,15 @@
 #define PETANI_HPP
 
 #include "Pemain.hpp"
+#include "Ladang.hpp"
+#include "Plant.hpp"
 
 using namespace std;
 
 class Petani : public Pemain
 {
 private:
-    Matrix<string> *ladang;
+    Ladang *ladang;
 
 public:
     Petani(string username, int gulden, int beratbadan);

@@ -2,7 +2,7 @@
 #include "./commands/Next.hpp"
 #include "./commands/CetakPenyimpanan.hpp"
 // #include "classes/commands/PungutPajak.hpp"
-// #include "classes/commands/CetakLadang.hpp"
+#include "classes/commands/CetakLadang.hpp"
 // #include "classes/commands/CetakPeternakan.hpp"
 // #include "classes/commands/Tanam.hpp"
 // #include "classes/commands/Ternak.hpp"
@@ -41,7 +41,7 @@ Main::Main()
     commands["NEXT"] = new Next();
     commands["CETAK_PENYIMPANAN"] = new CetakPenyimpanan();
     // commands["PUNGUT_PAJAK"] = new PungutPajak();
-    // commands["CETAK_LADANG"] = new CetakLadang();
+    commands["CETAK_LADANG"] = new CetakLadang();
     // commands["CETAK_PETERNAKAN"] = new CetakPeternakan();
     // commands["TANAM"] = new Tanam();
     // commands["TERNAK"] = new Ternak();

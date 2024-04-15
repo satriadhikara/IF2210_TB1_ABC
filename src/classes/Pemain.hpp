@@ -4,11 +4,12 @@
 #include <string>
 #include <map>
 #include "Matrix.hpp"
+#include "Items.hpp"
 
 class Pemain
 {
 protected:
-    Matrix<string> *penyimpanan;
+    Matrix<Items*> *penyimpanan;
 
     string username;
     int gulden;
