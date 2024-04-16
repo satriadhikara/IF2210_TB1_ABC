@@ -100,7 +100,10 @@ void Petani::tanam(const vector<Plant*>& plantData)
 
 void Petani::panen()
 {
-    // TODO
+    cetakLadang();
+    ladang->listTumbuhan();
+    cout << "Pilih tanaman siap panen yang kamu miliki" << endl;
+    ladang->listSiapPanen();
 }
 
 string Petani::getRole()

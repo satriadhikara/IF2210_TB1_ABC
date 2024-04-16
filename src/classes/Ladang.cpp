@@ -1,5 +1,8 @@
 #include "Ladang.hpp"
 
+#include <vector>
+#include <algorithm>
+
 Ladang::Ladang(int row, int col) : Matrix<Plant *>(row, col) {}
 
 Ladang::~Ladang()
@@ -31,6 +34,70 @@ bool Ladang::isFull()
         }
     }
     return true;
+}
+
+void Ladang::listTumbuhan()
+{
+    vector<Plant*> kodeHuruf;
+    for (int i = 0; i < this->getRow(); i++)
+    {
+        for (int j = 0; j < this->getCol(); j++)
+        {
+            if (this->getElmt(i, j) != nullptr)
+            {
+                if (find(kodeHuruf.begin(), kodeHuruf.end(), this->getElmt(i, j)->getKodeHuruf()) == kodeHuruf.end())
+                {
+                    kodeHuruf.push_back(this->getElmt(i, j));
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < kodeHuruf.size(); i++)
+    {
+        cout << "- " << kodeHuruf[i]->getKodeHuruf() << ": " << kodeHuruf[i]->getNama() << endl;
+    }
+}
+
+void Ladang::listSiapPanen()
+{
+    vector<Plant*> kodeHuruf;
+    for (int i = 0; i < this->getRow(); i++)
+    {
+        for (int j = 0; j < this->getCol(); j++)
+        {
+            if (this->getElmt(i, j) != nullptr)
+            {
+                if (this->getElmt(i, j)->isSiapPanen())
+                {
+                    if (find(kodeHuruf.begin(), kodeHuruf.end(), this->getElmt(i, j)->getKodeHuruf()) == kodeHuruf.end())
+                    {
+                        kodeHuruf.push_back(this->getElmt(i, j));
+                    }
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < kodeHuruf.size(); i++)
+    {
+        int count = 0;
+        for (int j = 0; j < this->getRow(); j++)
+        {
+            for (int k = 0; k < this->getCol(); k++)
+            {
+                if (this->getElmt(j, k) != nullptr)
+                {
+                    if (this->getElmt(j, k)->getKodeHuruf() == kodeHuruf[i]->getKodeHuruf())
+                    {
+                        count++;
+                    }
+                }
+            }
+        }
+        cout << i+1 << ". " << kodeHuruf[i]->getKodeHuruf() << " (" << count << "petak siap panen)" << endl;
+    }
+
 }
 
 ostream &operator<<(ostream &os, Ladang &l)
