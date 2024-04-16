@@ -13,6 +13,11 @@ int Animal::getWeightToHarvest()
     return this->weightToHarvest;
 }
 
+void Animal::setWeight(int weight)
+{
+    this->weight = weight;
+}
+
 bool Animal::isSiapPanen()
 {
     return this->weight >= this->weightToHarvest;

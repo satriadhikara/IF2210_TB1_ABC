@@ -19,11 +19,12 @@ public:
 
     string getRole() override;
 
+    void setLadang(Ladang *ladang);
     void cetakLadang();
-    void tanam(const vector<Plant*>& plantData);
+    void tanam(const vector<Plant *> &plantData);
     void panen();
-    bool cekTanaman(const vector<Plant*>& plantData, const string& kodeHuruf);
-    bool cekInventoryPetani(const vector<Plant*>& plantData); 
+    bool cekTanaman(const vector<Plant *> &plantData, const string &kodeHuruf);
+    bool cekInventoryPetani(const vector<Plant *> &plantData);
 };
 
 #endif

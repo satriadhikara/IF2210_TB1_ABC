@@ -15,6 +15,11 @@ Peternak::~Peternak()
     delete this->peternakan;
 }
 
+void Peternak::setPeternakan(Peternakan *peternakan)
+{
+    this->peternakan = peternakan;
+}
+
 void Peternak::cetakPeternakan()
 {
     cout << *this->peternakan;

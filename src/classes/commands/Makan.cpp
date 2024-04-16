@@ -66,37 +66,31 @@ void Makan::run(Main &main)
             cp.run(main);
             Pemain *pemain = main.getCurrentPemain();
 
-            string rowString;
-            string colString;
-
             string slot;
             cin >> slot;
 
-            for (char c : slot)
+            int baris, kolom;
+
+            size_t numPos = slot.find_first_of("0123456789");
+            if (numPos == std::string::npos)
             {
-                if (isdigit(c))
-                {
-                    rowString += c;
-                }
-                else
-                {
-                    colString += c;
-                }
+                throw "Invalid slot format!";
             }
 
-            int row = stoi(rowString);
-
-            int col = 0;
-            for (char c : colString)
+            kolom = 0;
+            for (size_t i = 0; i < numPos; ++i)
             {
-                row = row * 26 + (c - 'A');
-            };
+                kolom = kolom * 26 + (toupper(slot[i]) - 'A' + 1);
+            }
+            --kolom;
+
+            baris = stoi(slot.substr(numPos)) - 1;
 
             if (pemain)
             {
                 try
                 {
-                    pemain->makan(*main.getProductData(), row, col);
+                    pemain->makan(*main.getProductData(), baris, kolom);
                     success = true;
                 }
                 catch (exception &e)
