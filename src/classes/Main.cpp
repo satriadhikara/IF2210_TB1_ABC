@@ -13,7 +13,7 @@
 // #include "./commands/Menjual.hpp"
 // #include "./commands/Memanen.hpp"
 // #include "./commands/Muat.hpp"
-// #include "./commands/Simpan.hpp"
+#include "./commands/Simpan.hpp"
 #include "./commands/TambahPemain.hpp"
 #include "../utils/Exception.hpp"
 
@@ -55,7 +55,7 @@ Main::Main()
     // commands["JUAL"] = new Menjual();
     // commands["PANEN"] = new Memanen();
     // commands["MUAT"] = new Muat();
-    // commands["SIMPAN"] = new Simpan();
+    commands["SIMPAN"] = new Simpan();
     commands["TAMBAH_PEMAIN"] = new TambahPemain();
 }
 
@@ -134,4 +134,9 @@ vector<Product> *Main::getProductData()
 Toko *Main::getToko()
 {
     return toko;
+}
+
+vector<Bangunan> *Main::getBangunanData()
+{
+    return &bangunanData;
 }

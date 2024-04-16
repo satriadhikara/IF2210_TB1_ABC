@@ -46,6 +46,7 @@ public:
     vector<Plant *> *getPlantData();
     vector<Animal *> *getAnimalData();
     vector<Product> *getProductData();
+    vector<Bangunan> *getBangunanData();
     Toko *getToko();
 
     friend istream &operator>>(istream &in, Main &main);
