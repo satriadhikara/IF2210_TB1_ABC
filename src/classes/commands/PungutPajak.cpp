@@ -53,6 +53,6 @@ void PungutPajak::run(Main &main)
     }
     else
     {
-        throw PungutPajakException();
+        throw WalikotaException();
     }
 }
