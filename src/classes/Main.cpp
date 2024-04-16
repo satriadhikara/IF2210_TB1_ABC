@@ -10,7 +10,7 @@
 #include "./commands/Makan.hpp"
 // #include "./commands/MemberiPangan.hpp"
 #include "./commands/Membeli.hpp"
-// #include "./commands/Menjual.hpp"
+#include "./commands/Menjual.hpp"
 // #include "./commands/Memanen.hpp"
 // #include "./commands/Muat.hpp"
 // #include "./commands/Simpan.hpp"
@@ -52,7 +52,7 @@ Main::Main()
     commands["MAKAN"] = new Makan();
     // commands["KASIH_MAKAN"] = new MemberiPangan();
     commands["BELI"] = new Membeli();
-    // commands["JUAL"] = new Menjual();
+    commands["JUAL"] = new Menjual();
     // commands["PANEN"] = new Memanen();
     // commands["MUAT"] = new Muat();
     // commands["SIMPAN"] = new Simpan();

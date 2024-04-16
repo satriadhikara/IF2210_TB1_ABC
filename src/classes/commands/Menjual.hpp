@@ -2,11 +2,14 @@
 #define MENJUAL_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 class Menjual : public Commands
 {
 public:
-    void run() override;
+    Menjual();
+    ~Menjual();
+    void run(Main &) override;
 };
 
 #endif

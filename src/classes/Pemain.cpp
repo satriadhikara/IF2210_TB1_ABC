@@ -1,5 +1,8 @@
 #include "Pemain.hpp"
+#include "String.hpp"
 #include <iostream>
+#include <limits>
+
 
 Pemain::Pemain(string username, int gulden, int beratbadan)
 {
@@ -98,7 +101,42 @@ void Pemain::membeli(Toko *toko, int index, int banyak)
     cout << kode << " berhasil disimpan di penyimpanan!" << endl;
 }
 
-void Pemain::menjual()
+void Pemain::menjual(Pemain *pemain, Toko *toko)
 {
-    // TODO
+    cout << "Berikut merupakan penyimpanan Anda" << endl;
+    pemain->cetakPenyimpanan();
+
+    string kodeHurufList;
+    int jumlah;
+    cout << "Silahkan pilih petak yang ingin Anda jual!\nPetak : ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, kodeHurufList);
+    vector<string> kodeHurufVector = String::split(kodeHurufList, ',');
+
+    int uang = pemain->getGulden();
+    for (string kodeHuruf : kodeHurufVector)
+    {
+        int baris,kolom;
+        size_t numPos = kodeHuruf.find_first_of("0123456789");
+        if (numPos == std::string::npos) {
+            throw "Invalid slot format!";
+        }
+
+        kolom = 0;
+        for (size_t i = 0; i < numPos; ++i) {
+            kolom = kolom * 26 + (toupper(kodeHuruf[i]) - 'A' + 1);
+        }
+        --kolom;
+
+        baris = stoi(kodeHuruf.substr(numPos)) - 1;
+
+        string kodeBarang = pemain->getPenyimpanan()->getElmt(baris, kolom);
+        Items *item = toko->getItem(kodeBarang);
+        toko->menjual(kodeBarang);
+        pemain->getPenyimpanan()->setElmt(baris, kolom, "");
+        uang += item->getPrice();
+        pemain->setGulden(uang);
+    }
+
+    cout << "Barang Anda berhasil dijual! Uang Anda bertambah " << uang << " gulden." << endl;
 }
