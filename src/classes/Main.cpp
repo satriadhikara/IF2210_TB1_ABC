@@ -91,12 +91,12 @@ void Main::runCommand(string commandInput)
     if (command != nullptr)
     {
         command->run(*this);
-        if (isGameOver())
-        {
-            Pemain *pemain = getCurrentPemain();
-            cout << pemain->getUsername() << " menang!" << endl;
-            isRunning = false;
-        }
+        // if (isGameOver())
+        // {
+        //     Pemain *pemain = getCurrentPemain();
+        //     cout << pemain->getUsername() << " menang!" << endl;
+        //     isRunning = false;
+        // }
     }
     else
     {
