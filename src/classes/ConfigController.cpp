@@ -317,7 +317,7 @@ void ConfigController::loadState(vector<Pemain *> &pemain, const string &filenam
                     if (p->getNama() == line)
                     {
                         pemain[i]->tambahPenyimpanan(p->getKodeHuruf());
-                                        }
+                    }
                 }
                 for (Animal *a : animalData)
                 {
@@ -460,5 +460,23 @@ void ConfigController::loadState(vector<Pemain *> &pemain, const string &filenam
     else
     {
         throw "File state.txt not found!";
+    }
+}
+
+void ConfigController::loadMisc(int &guldenWin, int &weightWin)
+{
+    ifstream file("./configs/misc.txt");
+    if (file.is_open())
+    {
+        string line;
+        getline(file, line);
+        guldenWin = stoi(line);
+        getline(file, line);
+        weightWin = stoi(line);
+        file.close();
+    }
+    else
+    {
+        throw "File misc.txt not found!";
     }
 }
