@@ -1,4 +1,5 @@
 #include "Peternak.hpp"
+#include "Product.hpp"
 #include "CarnivoreAnimal.hpp"
 #include "HerbivoreAnimal.hpp"
 #include "OmnivoreAnimal.hpp"
@@ -123,9 +124,112 @@ void Peternak::ternak(const vector<Animal *> &animalData)
     }
 }
 
-void Peternak::kasihMakan()
+void Peternak::kasihMakan(const vector<Animal*>& animalData, const vector<Product>& productData)
 {
-    // TODO
+    if (this->peternakan->isEmpty()) {
+        throw "Peternakan kosong!";
+    } else if (!cekInventoryPeternak(animalData)) {
+        throw "Tidak ada hewan di penyimpanan!";
+    } else {
+        string petak_kandang;
+        cout << "Pilih petak kandang yang akan ditinggali" << endl;
+        cout << "=================[ Peternakan ]==================" << endl;
+        this->cetakPeternakan();
+
+        cout << "Petak kandang: ";
+        cin >> petak_kandang;
+
+        int baris_kandang, kolom_kandang;
+
+        size_t numPos = petak_kandang.find_first_of("0123456789");
+        if (numPos == std::string::npos)
+        {
+            throw "Invalid slot format!";
+        }
+
+        kolom_kandang = 0;
+        for (size_t i = 0; i < numPos; ++i)
+        {
+            kolom_kandang = kolom_kandang * 26 + (toupper(petak_kandang[i]) - 'A' + 1);
+        }
+        --kolom_kandang;
+
+        baris_kandang = stoi(petak_kandang.substr(numPos)) - 1;
+
+        string kodeHewan = this->peternakan->getElmt(baris_kandang, kolom_kandang);
+        if (kodeHewan == "") {
+            throw "Petak kandang kosong!";
+        }
+
+        Animal* hewan = nullptr;
+        for (const auto& data : animalData) {
+            if (data->getKodeHuruf() == kodeHewan) {
+                if (data->getType() == "Carnivore") {
+                    hewan = new CarnivoreAnimal(*static_cast<CarnivoreAnimal*>(data));
+                } else if (data->getType() == "Herbivore") {
+                    hewan = new HerbivoreAnimal(*static_cast<HerbivoreAnimal*>(data));
+                } else if (data->getType() == "Omnivore") {
+                    hewan = new OmnivoreAnimal(*static_cast<OmnivoreAnimal*>(data));
+                }
+                break;
+            }
+        }
+
+        cout << "Kamu memilih " << hewan->getNama() <<" untuk diberi makan" << endl;
+
+        string slot_penyimpanan;
+        cout << "Pilih pangan yang akan diberikan: " << endl;
+        cout << "=================[ Penyimpanan ]==================" << endl;
+        this->cetakPenyimpanan();
+        cout << "Slot: ";
+        cin >> slot_penyimpanan;
+
+        int baris_penyimpanan, kolom_penyimpanan;
+
+        numPos = slot_penyimpanan.find_first_of("0123456789");
+        if (numPos == std::string::npos)
+        {
+            throw "Invalid tanah format!";
+        }
+
+        kolom_penyimpanan = 0;
+        for (size_t i = 0; i < numPos; ++i)
+        {
+            kolom_penyimpanan = kolom_penyimpanan * 26 + (toupper(slot_penyimpanan[i]) - 'A' + 1);
+        }
+        --kolom_penyimpanan;
+
+        baris_penyimpanan = stoi(slot_penyimpanan.substr(numPos)) - 1;
+
+        string pangan = this->penyimpanan->getElmt(baris_penyimpanan, kolom_penyimpanan);
+        if (pangan == "") {
+            throw "Slot penyimpanan kosong!";
+        }
+
+        const Product* product = nullptr;
+        for (const auto& prod : productData) {
+            if (hewan->getType() == "Carnivore" && prod.getType() == "Hewan") {
+                product = &prod;
+                break;
+            }
+            if (hewan->getType() == "Herbivore" && prod.getType() == "Tumbuhan") {
+                product = &prod;
+                break;
+            }
+        }
+
+        if (product == nullptr) {
+            throw "Tidak ada makanan yang sesuai untuk hewan ini!";
+        }
+
+        int beratPangan = product->getAddedWeight();
+
+        hewan->setBerat(hewan->getWeightToHarvest() + beratPangan);
+
+        cout << hewan->getNama() << " sudah diberi makan dan beratnya menjadi " << hewan->getWeightToHarvest() << endl;
+
+        delete hewan;
+    }
 }
 
 void Peternak::panen()

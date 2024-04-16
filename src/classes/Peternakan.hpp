@@ -13,6 +13,7 @@ public:
     void setAnimal(int row, int col, Animal *animal);
     bool isFull();
     friend ostream &operator<<(ostream &os, Peternakan &p);
+    bool isEmpty();
 };
 
 #endif

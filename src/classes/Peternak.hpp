@@ -21,7 +21,7 @@ public:
 
     void cetakPeternakan();
     void ternak(const vector<Animal*>& animalData);
-    void kasihMakan();
+    void kasihMakan(const vector<Animal*>& animalData, const vector<Product>& productData);
     void panen();
     bool cekHewan(const vector<Animal*>& animalData, const string& kodeHuruf);
     bool cekInventoryPeternak(const vector<Animal*>& animalData);

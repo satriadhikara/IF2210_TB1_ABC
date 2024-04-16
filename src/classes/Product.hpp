@@ -16,6 +16,9 @@ public:
 
     int getAddedWeight();
     string getOrigin();
+    string getType() const {
+        return type;
+    }
 };
 
 #endif

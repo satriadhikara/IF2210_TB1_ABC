@@ -17,3 +17,6 @@ bool Animal::isSiapPanen()
 {
     return this->weight >= this->weightToHarvest;
 }
+void Animal::setBerat(int berat) {
+    this->weight = berat;
+}

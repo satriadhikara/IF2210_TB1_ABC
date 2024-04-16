@@ -18,6 +18,21 @@ void Peternakan::setAnimal(int row, int col, Animal *animal)
     this->setElmt(row, col, animal);
 }
 
+bool Peternakan::isEmpty()
+    {
+        for (int i = 0; i < this->getRow(); i++)
+        {
+            for (int j = 0; j < this->getCol(); j++)
+            {
+                if (this->getElmt(i, j) != nullptr)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 bool Peternakan::isFull()
 {
     for (int i = 0; i < this->getRow(); i++)

@@ -18,6 +18,7 @@ public:
     virtual void panen(Matrix<string> &) = 0;
     bool isSiapPanen();
     virtual string getType() = 0;
+    void setBerat(int berat);
 };
 
 #endif
