@@ -1,5 +1,5 @@
 #include "Simpan.hpp"
-#include "Pemain.hpp"
+#include "../Pemain.hpp"
 #include <filesystem>
 #include <iostream>
 #include <vector>
@@ -16,7 +16,7 @@ void Simpan::run(Main &main)
     string lokasi;
     cin >> lokasi;
 
-    if (std::filesystem::exists(lokasi))
+    if (std::__fs::filesystem::exists(lokasi))
     {
         ConfigController::saveState(*main.getPemain(), lokasi, *main.getPlantData(), *main.getAnimalData(), *main.getProductData(), *main.getBangunanData());
         cout << "State berhasil disimpan!" << endl;
