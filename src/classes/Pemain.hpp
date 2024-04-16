@@ -32,7 +32,7 @@ public:
     void makan(const vector<Product> &product, int row, int col);
 
     virtual void membeli(Toko *toko, int index, int banyak);
-    virtual void menjual();
+    virtual void menjual(Pemain *pemain, Toko *toko);
     virtual string getRole() = 0;
 };
 

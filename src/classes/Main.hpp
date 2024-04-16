@@ -29,6 +29,8 @@ private:
 
     Menu menuController;
 
+    int guldenWin;
+    int weightWin;
     int currentPemain;
     bool isRunning;
 
@@ -37,6 +39,7 @@ public:
     ~Main();
 
     bool getIsRunning();
+    bool isGameOver();
     int getUrutanPemain();
     int getBanyakPemain();
     void setUrutanPemain(int);

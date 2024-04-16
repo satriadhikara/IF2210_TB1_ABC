@@ -521,3 +521,22 @@ void ConfigController::saveState(vector<Pemain *> &pemain, string lokasi, vector
         throw "File not found!";
     }
 }
+
+void ConfigController::loadMisc(int &guldenWin, int &weightWin)
+{
+    ifstream file("./configs/misc.txt");
+    if (file.is_open())
+    {
+        string line;
+        getline(file, line);
+        guldenWin = stoi(line);
+        getline(file, line);
+        weightWin = stoi(line);
+        file.close();
+    }
+    else
+    {
+        throw "File misc.txt not found!";
+
+    }
+}

@@ -10,7 +10,7 @@
 #include "./commands/Makan.hpp"
 // #include "./commands/MemberiPangan.hpp"
 #include "./commands/Membeli.hpp"
-// #include "./commands/Menjual.hpp"
+#include "./commands/Menjual.hpp"
 // #include "./commands/Memanen.hpp"
 // #include "./commands/Muat.hpp"
 #include "./commands/Simpan.hpp"
@@ -26,6 +26,7 @@ Main::Main()
     try
     {
         config.loadConfig(plantData, animalData, productData, bangunanData);
+        config.loadMisc(guldenWin, weightWin);
     }
     catch (const char *msg)
     {
@@ -52,7 +53,7 @@ Main::Main()
     commands["MAKAN"] = new Makan();
     // commands["KASIH_MAKAN"] = new MemberiPangan();
     commands["BELI"] = new Membeli();
-    // commands["JUAL"] = new Menjual();
+    commands["JUAL"] = new Menjual();
     // commands["PANEN"] = new Memanen();
     // commands["MUAT"] = new Muat();
     commands["SIMPAN"] = new Simpan();
@@ -78,12 +79,24 @@ bool Main::getIsRunning()
     return isRunning;
 }
 
+bool Main::isGameOver()
+{
+    Pemain *pemain = getCurrentPemain();
+    return pemain->getGulden() >= guldenWin || pemain->getBeratBadan() >= weightWin;
+}
+
 void Main::runCommand(string commandInput)
 {
     Commands *command = commands[commandInput];
     if (command != nullptr)
     {
         command->run(*this);
+        if (isGameOver())
+        {
+            Pemain *pemain = getCurrentPemain();
+            cout << pemain->getUsername() << " menang!" << endl;
+            isRunning = false;
+        }
     }
     else
     {

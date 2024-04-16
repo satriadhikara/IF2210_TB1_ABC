@@ -15,6 +15,7 @@ protected:
 
 public:
     Items(int id, string kodeHuruf, string nama, int price);
+    Items(const Items &items);
     virtual ~Items();
 
     int getId();

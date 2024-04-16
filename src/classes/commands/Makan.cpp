@@ -1,5 +1,6 @@
 #include "Makan.hpp"
 #include "CetakPenyimpanan.hpp"
+#include "../../utils/Exception.hpp"
 
 #include <iostream>
 #include <cctype>
@@ -54,7 +55,7 @@ void Makan::run(Main &main)
 
     if (!bisa)
     {
-        throw "Tidak ada makanan yang bisa dimakan!";
+        throw MakanException();
     }
     else
     {

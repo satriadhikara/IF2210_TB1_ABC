@@ -46,4 +46,25 @@ public:
     }
 };
 
+class MakanException : public GameException {
+public:
+    const char* what() const noexcept override {
+        return "Tidak ada makanan yang bisa dimakan!.\n";
+    }
+};
+
+class BeliException : public GameException {
+public:
+    const char* what() const noexcept override {
+        return "Invalid item state.\n";
+    }
+};
+
+class JualException : public GameException {
+public:
+    const char* what() const noexcept override {
+        return "Invalid item state.\n";
+    }
+};
+
 #endif
