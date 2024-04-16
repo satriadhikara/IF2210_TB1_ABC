@@ -17,6 +17,6 @@ void Ternak::run(Main &main)
     }
     else
     {
-        //throw TernakException();
+        throw PeternakException();
     }
 }

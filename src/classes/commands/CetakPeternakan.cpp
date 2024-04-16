@@ -20,6 +20,6 @@ void CetakPeternakan::run(Main &main){
     }
     else
     {
-        throw CetakPeternakanException();
+        throw PeternakException();
     }
 }

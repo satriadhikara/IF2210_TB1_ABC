@@ -17,6 +17,6 @@ void CetakLadang::run(Main &main)
     }
     else
     {
-        throw CetakLadangException();
+        throw PetaniException();
     }
 }

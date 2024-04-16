@@ -17,6 +17,6 @@ void Tanam::run(Main &main)
     }
     else
     {
-        //throw TanamException();
+        throw PetaniException();
     }
 }

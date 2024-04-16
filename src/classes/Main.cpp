@@ -15,6 +15,7 @@
 // #include "./commands/Muat.hpp"
 // #include "./commands/Simpan.hpp"
 #include "./commands/TambahPemain.hpp"
+#include "./utils/Exception.hpp"
 
 #include <iostream>
 
@@ -83,7 +84,7 @@ void Main::runCommand(string commandInput)
     }
     else
     {
-        throw "Command not found";
+        throw RunCommandException();
     }
 }
 

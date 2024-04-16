@@ -16,6 +16,6 @@ void TambahPemain::run(Main &main) {
    }
    else
    {
-    throw "Test";
+    throw WalikotaException();
    }
 }

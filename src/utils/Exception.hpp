@@ -4,35 +4,46 @@
 #include <exception>
 using namespace std;
 
-struct CetakPenyimpananException : public exception
-{
-    const char *what() const throw()
-    {
+class GameException : public exception {
+public:
+    virtual const char* what() const noexcept override {
+        return "Game exception occurred.\n";
+    }
+};
+
+class RunCommandException : public GameException {
+public:
+    const char* what() const noexcept override {
+        return "Command Not Found.\n";
+    }
+};
+
+class CetakPenyimpananException : public GameException {
+public:
+    const char* what() const noexcept override {
         return "Pointer pemain kosong.\n";
     }
 };
 
-struct PungutPajakException : public exception
-{
-    const char *what() const throw()
-    {
-        return "Role salah.\n";
+class WalikotaException : public GameException {
+public:
+    const char* what() const noexcept override {
+        return "Pemain bukan walikota.\n";
     }
 };
 
-struct CetakLadangException : public exception
-{
-    const char *what() const throw()
-    {
+class PetaniException : public GameException {
+public:
+    const char* what() const noexcept override {
         return "Pemain bukan petani.\n";
     }
 };
 
-struct CetakPeternakanException : public exception
-{
-    const char *what() const throw()
-    {
+class PeternakException : public GameException {
+public:
+    const char* what() const noexcept override {
         return "Pemain bukan peternak.\n";
     }
 };
+
 #endif
