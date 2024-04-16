@@ -36,7 +36,7 @@ void Membeli::run(Main &main)
         }
     } while (banyak > slotTersedia);
 
-    cout << "Selamat Anda berhasil membeli " << banyak << " " << toko->getNamaItem(index) << ". Uang Anda tersisa 88 gulden." << endl;
+    cout << "Selamat Anda berhasil membeli " << banyak << " " << toko->getNamaItem(index) << ". Uang Anda tersisa " << pemain->getGulden() << " gulden." << endl;
 
     try
     {
