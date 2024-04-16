@@ -463,6 +463,65 @@ void ConfigController::loadState(vector<Pemain *> &pemain, const string &filenam
     }
 }
 
+void ConfigController::saveState(vector<Pemain *> &pemain, string lokasi, vector<Plant *> &plantData, vector<Animal *> &animalData, vector<Product> &productData, vector<Bangunan> &bangunanData)
+{
+    ofstream file(lokasi);
+    if (file.is_open())
+    {
+        file << pemain.size() << endl;
+        for (Pemain *p : pemain)
+        {
+            file << p->getUsername() << " " << p->getRole() << " " << p->getGulden() << " " << p->getBeratBadan() << endl;
+            file << p->getPenyimpanan()->getRow() << endl;
+            for (int i = 0; i < p->getPenyimpanan()->getRow(); i++)
+            {
+                for (int j = 0; j < p->getPenyimpanan()->getCol(); j++)
+                {
+                    if (p->getPenyimpanan()->getElmt(i, j) != "")
+                    {
+                        for (Plant *plant : plantData)
+                        {
+                            if (plant->getKodeHuruf() == p->getPenyimpanan()->getElmt(i, j))
+                            {
+                                file << plant->getNama() << endl;
+                                break;
+                            }
+                        }
+                        for (Animal *animal : animalData)
+                        {
+                            if (animal->getKodeHuruf() == p->getPenyimpanan()->getElmt(i, j))
+                            {
+                                file << animal->getNama() << endl;
+                                break;
+                            }
+                        }
+                        for (Product product : productData)
+                        {
+                            if (product.getKodeHuruf() == p->getPenyimpanan()->getElmt(i, j))
+                            {
+                                file << product.getNama() << endl;
+                                break;
+                            }
+                        }
+                        for (Bangunan bangunan : bangunanData)
+                        {
+                            if (bangunan.getKodeHuruf() == p->getPenyimpanan()->getElmt(i, j))
+                            {
+                                file << bangunan.getNama() << endl;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        throw "File not found!";
+    }
+}
+
 void ConfigController::loadMisc(int &guldenWin, int &weightWin)
 {
     ifstream file("./configs/misc.txt");
@@ -478,5 +537,6 @@ void ConfigController::loadMisc(int &guldenWin, int &weightWin)
     else
     {
         throw "File misc.txt not found!";
+
     }
 }

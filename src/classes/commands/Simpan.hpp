@@ -2,11 +2,14 @@
 #define SIMPAN_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 class Simpan : public Commands
 {
 public:
-    void run() override;
+    Simpan();
+    ~Simpan();
+    void run(Main &) override;
 };
 
 #endif

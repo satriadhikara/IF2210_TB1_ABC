@@ -18,7 +18,7 @@ public:
 
     void loadConfig(vector<Plant *> &, vector<Animal *> &, vector<Product> &, vector<Bangunan> &);
     void loadState(vector<Pemain *> &pemain, const string &filename, vector<Plant *> &plantData, vector<Animal *> &animalData, vector<Product> &productData, vector<Bangunan> &bangunanData);
-    void saveState();
+    static void saveState(vector<Pemain *> &pemain, string lokasi, vector<Plant *> &plantData, vector<Animal *> &animalData, vector<Product> &productData, vector<Bangunan> &bangunanData);
     void loadMisc(int &guldenWin, int &weightWin);
 };
 
