@@ -1,5 +1,6 @@
 #include "Toko.hpp"
 #include <iostream>
+#include "../utils/Exception.hpp"
 
 using namespace std;
 
@@ -70,7 +71,7 @@ string Toko::dibeli(int index, int banyak)
     }
     else
     {
-        throw "Invalid item state";
+        throw BeliException();
     }
 }
 
@@ -84,7 +85,7 @@ void Toko::menjual(string kodeHuruf)
             return;
         }
     }
-    throw "Barang tidak ditemukan";
+    throw JualException();
 }
 
 string Toko::getNamaItem(int index)
