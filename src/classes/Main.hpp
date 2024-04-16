@@ -9,6 +9,7 @@
 #include "Pemain.hpp"
 #include "Bangunan.hpp"
 #include "Menu.hpp"
+#include "Toko.hpp"
 #include <map>
 #include <vector>
 #include <istream>
@@ -24,6 +25,7 @@ private:
     vector<Product> productData;
     vector<Pemain *> *pemain;
     vector<Bangunan> bangunanData;
+    Toko *toko;
 
     Menu menuController;
 
@@ -44,6 +46,7 @@ public:
     vector<Plant *> *getPlantData();
     vector<Animal *> *getAnimalData();
     vector<Product> *getProductData();
+    Toko *getToko();
 
     friend istream &operator>>(istream &in, Main &main);
 };

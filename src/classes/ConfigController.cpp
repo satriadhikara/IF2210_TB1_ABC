@@ -66,7 +66,7 @@ void ConfigController::loadConfig(vector<Plant *> &plant, vector<Animal *> &anim
             }
             else if (type == "OMNIVORE")
             {
-                animal.push_back(new OmniVoreAnimal(id, kode_huruf, name, price, duration_to_harvest));
+                animal.push_back(new OmnivoreAnimal(id, kode_huruf, name, price, duration_to_harvest));
             }
             else if (type == "CARNIVORE")
             {
@@ -128,11 +128,11 @@ void ConfigController::loadConfig(vector<Plant *> &plant, vector<Animal *> &anim
                 }
                 i++;
             }
-            if (type == "MATERIAL")
+            if (type == "MATERIAL_PLANT")
             {
                 plant.push_back(new MaterialPlant(id, kode_huruf, name, price, duration_to_harvest));
             }
-            else if (type == "FRUIT")
+            else if (type == "FRUIT_PLANT")
             {
                 plant.push_back(new FruitPlant(id, kode_huruf, name, price, duration_to_harvest));
             }
