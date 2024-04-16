@@ -8,6 +8,14 @@ Items::Items(int id, string kodeHuruf, string nama, int price)
     this->price = price;
 }
 
+Items::Items(const Items &items)
+{
+    this->id = items.id;
+    this->kodeHuruf = items.kodeHuruf;
+    this->nama = items.nama;
+    this->price = items.price;
+}
+
 Items::~Items() {}
 
 int Items::getId()

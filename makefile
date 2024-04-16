@@ -8,7 +8,7 @@ CLSDIR = $(SRCDIR)/classes
 CMDDIR = $(CLSDIR)/commands
 
 CLSFILES = $(CLSDIR)/Main.cpp $(CLSDIR)/Menu.cpp $(CLSDIR)/Pemain.cpp $(CLSDIR)/Petani.cpp $(CLSDIR)/Walikota.cpp $(CLSDIR)/Peternak.cpp $(CLSDIR)/Peternakan.cpp $(CLSDIR)/Animal.cpp $(CLSDIR)/Items.cpp $(CLSDIR)/CarnivoreAnimal.cpp $(CLSDIR)/HerbivoreAnimal.cpp $(CLSDIR)/OmnivoreAnimal.cpp $(CLSDIR)/Ladang.cpp $(CLSDIR)/Plant.cpp $(CLSDIR)/FruitPlant.cpp $(CLSDIR)/MaterialPlant.cpp $(CLSDIR)/ConfigController.cpp $(CLSDIR)/Bangunan.cpp $(CLSDIR)/Product.cpp $(CLSDIR)/Toko.cpp
-CMDFILES = $(CMDDIR)/Commands.cpp $(CMDDIR)/Next.cpp $(CMDDIR)/CetakPenyimpanan.cpp $(CMDDIR)/CetakPeternakan.cpp $(CMDDIR)/CetakLadang.cpp $(CMDDIR)/PungutPajak.cpp $(CMDDIR)/TambahPemain.cpp $(CMDDIR)/Tanam.cpp $(CMDDIR)/Ternak.cpp $(CMDDIR)/Makan.cpp $(CMDDIR)/Membeli.cpp
+CMDFILES = $(CMDDIR)/Commands.cpp $(CMDDIR)/Next.cpp $(CMDDIR)/CetakPenyimpanan.cpp $(CMDDIR)/CetakPeternakan.cpp $(CMDDIR)/CetakLadang.cpp $(CMDDIR)/PungutPajak.cpp $(CMDDIR)/TambahPemain.cpp $(CMDDIR)/Tanam.cpp $(CMDDIR)/Ternak.cpp $(CMDDIR)/Makan.cpp $(CMDDIR)/Membeli.cpp $(CMDDIR)/Menjual.cpp
 
 all: build
 

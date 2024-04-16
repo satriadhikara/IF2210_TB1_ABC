@@ -22,8 +22,9 @@ public:
     void showItems();
 
     string dibeli(int index, int banyak);
-    void menjual(Items *item, int banyak);
+    void menjual(string kodeHuruf);
     string getNamaItem(int index);
+    Items *getItem(string kodeHuruf);
 };
 
 #endif
