@@ -26,6 +26,7 @@ Main::Main()
     try
     {
         config.loadConfig(plantData, animalData, productData, bangunanData);
+        config.loadMisc(guldenWin, weightWin);
     }
     catch (const char *msg)
     {
@@ -78,12 +79,24 @@ bool Main::getIsRunning()
     return isRunning;
 }
 
+bool Main::isGameOver()
+{
+    Pemain *pemain = getCurrentPemain();
+    return pemain->getGulden() >= guldenWin || pemain->getBeratBadan() >= weightWin;
+}
+
 void Main::runCommand(string commandInput)
 {
     Commands *command = commands[commandInput];
     if (command != nullptr)
     {
         command->run(*this);
+        if (isGameOver())
+        {
+            Pemain *pemain = getCurrentPemain();
+            cout << pemain->getUsername() << " menang!" << endl;
+            isRunning = false;
+        }
     }
     else
     {
