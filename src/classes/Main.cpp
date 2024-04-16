@@ -4,7 +4,7 @@
 #include "./commands/PungutPajak.hpp"
 #include "./commands/CetakLadang.hpp"
 #include "./commands/CetakPeternakan.hpp"
-// #include "./commands/Tanam.hpp"
+#include "./commands/Tanam.hpp"
 // #include "./commands/Ternak.hpp"
 // #include "./commands/BangunBangunan.hpp"
 // #include "./commands/Makan.hpp"
@@ -44,8 +44,8 @@ Main::Main()
     commands["PUNGUT_PAJAK"] = new PungutPajak();
     commands["CETAK_LADANG"] = new CetakLadang();
     commands["CETAK_PETERNAKAN"] = new CetakPeternakan();
-    // commands["TANAM"] = new Tanam();
-    // commands["TERNAK"] = new Ternak();
+    commands["TANAM"] = new Tanam();
+    // commands["TERNAK"] = new Ternak(); 
     // commands["BANGUN_BANGUNAN"] = new BangunBangunan();
     // commands["MAKAN"] = new Makan();
     // commands["KASIH_MAKAN"] = new MemberiPangan();
@@ -110,4 +110,14 @@ Pemain *Main::getCurrentPemain()
 vector<Pemain *> *Main::getPemain()
 {
     return pemain;
+}
+
+vector<Plant *> *Main::getPlantData()
+{
+    return &plantData;
+}
+
+vector<Animal *> *Main::getAnimalData()
+{
+    return &animalData;
 }

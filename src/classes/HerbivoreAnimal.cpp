@@ -7,3 +7,8 @@ HerbivoreAnimal::~HerbivoreAnimal() {}
 void HerbivoreAnimal::panen(Matrix<string> &penyimpanan)
 {
 }
+
+string HerbivoreAnimal::getType()
+{
+    return "Herbivore";
+}

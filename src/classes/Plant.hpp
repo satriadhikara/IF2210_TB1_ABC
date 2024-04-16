@@ -7,7 +7,7 @@ using namespace std;
 
 class Plant : public Items
 {
-private:
+protected:
     int durationToHarvest;
     int age;
 
@@ -18,6 +18,7 @@ public:
     int getDurationToHarvest();
     virtual void panen();
     bool isSiapPanen();
+    virtual string getType() = 0;
 };
 
 #endif

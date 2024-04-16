@@ -10,6 +10,7 @@ public:
     ~FruitPlant();
 
     void panen() override;
+    virtual string getType() override;
 };
 
 #endif

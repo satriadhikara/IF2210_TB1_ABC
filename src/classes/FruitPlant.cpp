@@ -4,4 +4,6 @@ FruitPlant::FruitPlant(int id, string kodeHuruf, string nama, int price, int dur
 
 FruitPlant::~FruitPlant() {}
 
+string FruitPlant::getType() { return "Fruit"; }
+
 void FruitPlant::panen() {}

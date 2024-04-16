@@ -2,11 +2,14 @@
 #define TANAM_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 class Tanam : public Commands
 {
 public:
-    void run() override;
+    Tanam();
+    ~Tanam();
+    void run(Main &) override;
 };
 
 #endif

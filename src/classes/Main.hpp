@@ -41,6 +41,8 @@ public:
     void runCommand(string);
     Pemain *getCurrentPemain();
     vector<Pemain *> *getPemain();
+    vector<Plant *> *getPlantData();
+    vector<Animal *> *getAnimalData();
 
     friend istream &operator>>(istream &in, Main &main);
 };

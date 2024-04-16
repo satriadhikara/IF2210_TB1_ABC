@@ -4,4 +4,6 @@ MaterialPlant::MaterialPlant(int id, string kodeHuruf, string nama, int price, i
 
 MaterialPlant::~MaterialPlant() {}
 
+string MaterialPlant::getType() { return "Material"; }
+
 void MaterialPlant::panen() {}

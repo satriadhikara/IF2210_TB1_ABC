@@ -3,13 +3,14 @@
 
 #include "Animal.hpp"
 
-class OmniVoreAnimal : public Animal
+class OmnivoreAnimal : public Animal
 {
 public:
-    OmniVoreAnimal(int id, string kodeHuruf, string nama, int price, int weightToHarvest);
-    ~OmniVoreAnimal();
+    OmnivoreAnimal(int id, string kodeHuruf, string nama, int price, int weightToHarvest);
+    ~OmnivoreAnimal();
 
     void panen(Matrix<string> &) override;
+    string getType() override;
 };
 
 #endif
