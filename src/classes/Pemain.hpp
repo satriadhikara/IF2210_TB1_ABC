@@ -4,12 +4,13 @@
 #include <string>
 #include <map>
 #include "Matrix.hpp"
+#include "Product.hpp"
 
 class Pemain
 {
 protected:
     Matrix<string> *penyimpanan;
-    
+
     string username;
     int gulden;
     int beratbadan;
@@ -24,8 +25,10 @@ public:
     void setBeratBadan(int beratbadan);
     int getBeratBadan();
     void tambahPenyimpanan(string kode);
+    Matrix<string> *getPenyimpanan();
     void cetakPenyimpanan();
-    void makan();
+
+    void makan(const vector<Product> &product, int row, int col);
 
     virtual void membeli();
     virtual void menjual();
