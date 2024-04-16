@@ -39,7 +39,7 @@ Main::Main()
     toko = new Toko(productData, animalData, plantData, bangunanData);
 
     menuController.showMenuAwal();
-    menuController.opsiBacaState(*pemain);
+    menuController.opsiBacaState(*pemain, plantData, animalData, productData, bangunanData);
 
     commands["NEXT"] = new Next();
     commands["CETAK_PENYIMPANAN"] = new CetakPenyimpanan();

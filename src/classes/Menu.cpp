@@ -3,6 +3,7 @@
 #include "Walikota.hpp"
 #include "Peternak.hpp"
 #include "Petani.hpp"
+#include "ConfigController.hpp"
 
 using namespace std;
 
@@ -18,7 +19,8 @@ void Menu::showMenuAwal()
     cout << "Masukkan pilihan: ";
 }
 
-void Menu::opsiBacaState(vector<Pemain *> &pemain)
+void Menu::opsiBacaState(vector<Pemain *> &pemain, vector<Plant *> &plantData, vector<Animal *> &animalData, vector<Product> &productData, vector<Bangunan> &bangunanData)
+
 {
     int pilihan;
     cin >> pilihan;
@@ -30,7 +32,8 @@ void Menu::opsiBacaState(vector<Pemain *> &pemain)
     }
     else if (pilihan == 2)
     {
-        cout << "Maaf, fitur belum tersedia." << endl;
+        ConfigController configController;
+        configController.loadState(pemain, "state.txt", plantData, animalData, productData, bangunanData);
     }
     else if (pilihan == 3)
     {

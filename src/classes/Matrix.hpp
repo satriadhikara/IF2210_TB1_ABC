@@ -58,6 +58,11 @@ public:
         return this->nEff;
     }
 
+    void incNEff()
+    {
+        this->nEff++;
+    }
+
     friend ostream &operator<<(ostream &os, Matrix &m)
     {
         int n_digit = to_string(m.getRow()).length();

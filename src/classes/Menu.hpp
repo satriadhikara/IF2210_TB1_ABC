@@ -2,6 +2,9 @@
 #define MENU_HPP
 
 #include "Pemain.hpp"
+#include "Plant.hpp"
+#include "Animal.hpp"
+#include "Product.hpp"
 #include <vector>
 
 using namespace std;
@@ -15,7 +18,7 @@ public:
 
     void showMenuAwal();
 
-    void opsiBacaState(vector<Pemain *> &);
+    void opsiBacaState(vector<Pemain *> &, vector<Plant *> &, vector<Animal *> &, vector<Product> &, vector<Bangunan> &);
 };
 
 #endif

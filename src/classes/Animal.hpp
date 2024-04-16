@@ -15,6 +15,7 @@ public:
     virtual ~Animal();
 
     int getWeightToHarvest();
+    void setWeight(int weight);
     virtual void panen(Matrix<string> &) = 0;
     bool isSiapPanen();
     virtual string getType() = 0;
