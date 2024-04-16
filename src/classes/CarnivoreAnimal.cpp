@@ -7,3 +7,8 @@ CarnivoreAnimal::~CarnivoreAnimal() {}
 void CarnivoreAnimal::panen(Matrix<string> &penyimpanan)
 {
 }
+
+string CarnivoreAnimal::getType()
+{
+    return "Carnivore";
+}

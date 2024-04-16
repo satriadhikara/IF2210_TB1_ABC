@@ -13,6 +13,26 @@ Ladang::~Ladang()
     // }
 }
 
+void Ladang::setPlant(int row, int col, Plant *plant)
+{
+    this->setElmt(row, col, plant);
+}
+
+bool Ladang::isFull()
+{
+    for (int i = 0; i < this->getRow(); i++)
+    {
+        for (int j = 0; j < this->getCol(); j++)
+        {
+            if (this->getElmt(i, j) == nullptr)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 ostream &operator<<(ostream &os, Ladang &l)
 {
     {

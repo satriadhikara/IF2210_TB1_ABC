@@ -10,6 +10,7 @@ public:
     ~CarnivoreAnimal();
 
     void panen(Matrix<string> &) override;
+    string getType() override;
 };
 
 #endif

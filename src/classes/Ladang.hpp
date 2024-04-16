@@ -10,6 +10,8 @@ class Ladang : public Matrix<Plant *>
 public:
     Ladang(int row, int col);
     ~Ladang();
+    void setPlant(int row, int col, Plant *plant);
+    bool isFull();
     friend ostream &operator<<(ostream &os, Ladang &l);
 };
 

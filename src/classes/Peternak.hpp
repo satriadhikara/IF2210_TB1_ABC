@@ -3,6 +3,8 @@
 
 #include "Pemain.hpp"
 #include "Peternakan.hpp"
+#include "Animal.hpp"
+#include <vector>
 
 using namespace std;
 
@@ -18,9 +20,11 @@ public:
     string getRole() override;
 
     void cetakPeternakan();
-    void ternak();
+    void ternak(const vector<Animal*>& animalData);
     void kasihMakan();
     void panen();
+    bool cekHewan(const vector<Animal*>& animalData, const string& kodeHuruf);
+    bool cekInventoryPeternak(const vector<Animal*>& animalData);
 };
 
 #endif

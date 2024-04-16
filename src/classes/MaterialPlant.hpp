@@ -10,6 +10,7 @@ public:
     ~MaterialPlant();
 
     void panen() override;
+    string getType() override;
 };
 
 #endif

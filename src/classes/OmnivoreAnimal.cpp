@@ -1,13 +1,18 @@
 #include "OmnivoreAnimal.hpp"
 
-OmniVoreAnimal::OmniVoreAnimal(int id, string kodeHuruf, string nama, int price, int weightToHarvest) : Animal(id, kodeHuruf, nama, price, weightToHarvest)
+OmnivoreAnimal::OmnivoreAnimal(int id, string kodeHuruf, string nama, int price, int weightToHarvest) : Animal(id, kodeHuruf, nama, price, weightToHarvest)
 {
 }
 
-OmniVoreAnimal::~OmniVoreAnimal()
+OmnivoreAnimal::~OmnivoreAnimal()
 {
 }
 
-void OmniVoreAnimal::panen(Matrix<string> &map)
+void OmnivoreAnimal::panen(Matrix<string> &map)
 {
+}
+
+string OmnivoreAnimal::getType()
+{
+    return "Omnivore";
 }
