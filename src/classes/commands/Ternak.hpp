@@ -7,6 +7,8 @@
 class Ternak : public Commands
 {
 public:
+    Ternak();
+    ~Ternak();
     void run(Main &) override;
 };
 

@@ -41,17 +41,17 @@ int Pemain::getBeratBadan()
 
 void Pemain::tambahPenyimpanan(string kode)
 {
-    // for (int i = 0; i < this->penyimpanan->getRow(); i++)
-    // {
-    //     for (int j = 0; j < this->penyimpanan->getCol(); j++)
-    //     {
-    //         if (this->penyimpanan->getElmt(i, j) == "")
-    //         {
-    //             this->penyimpanan->setElmt(i, j, kode);
-    //             return;
-    //         }
-    //     }
-    // }
+    for (int i = 0; i < this->penyimpanan->getRow(); i++)
+    {
+        for (int j = 0; j < this->penyimpanan->getCol(); j++)
+        {
+            if (this->penyimpanan->getElmt(i, j) == "")
+            {
+                this->penyimpanan->setElmt(i, j, kode);
+                return;
+            }
+        }
+    }
 }
 
 Matrix<string> *Pemain::getPenyimpanan()
@@ -83,13 +83,19 @@ void Pemain::makan(const vector<Product> &product, int row, int col)
                 return;
             }
         }
-        throw "Apa yang kamu lakukan??!! Kamu mencoba untuk memakan itu?!!\nSilahkan masukan slot yang berisi makanan.";
+        throw "Apa yang kamu lakukan?! Kamu mencoba untuk memakan itu?!!\nSilahkan masukan slot yang berisi makanan.";
     }
 }
 
-void Pemain::membeli()
+void Pemain::membeli(Toko *toko, int index, int banyak)
 {
-    // TODO
+    string kode = toko->dibeli(index, banyak);
+    for (int i = 0; i < banyak; i++)
+    {
+        this->tambahPenyimpanan(kode);
+    }
+
+    cout << kode << " berhasil disimpan di penyimpanan!" << endl;
 }
 
 void Pemain::menjual()

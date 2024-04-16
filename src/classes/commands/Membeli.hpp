@@ -2,11 +2,14 @@
 #define MEMBELI_HPP
 
 #include "Commands.hpp"
+#include "../Main.hpp"
 
 class Membeli : public Commands
 {
 public:
-    void run() override;
+    Membeli();
+    ~Membeli();
+    void run(Main &) override;
 };
 
 #endif

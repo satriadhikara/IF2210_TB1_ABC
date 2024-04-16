@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include "Matrix.hpp"
+#include "Toko.hpp"
 #include "Product.hpp"
 
 class Pemain
@@ -30,7 +31,7 @@ public:
 
     void makan(const vector<Product> &product, int row, int col);
 
-    virtual void membeli();
+    virtual void membeli(Toko *toko, int index, int banyak);
     virtual void menjual();
     virtual string getRole() = 0;
 };

@@ -5,17 +5,17 @@
 #include "./commands/CetakLadang.hpp"
 #include "./commands/CetakPeternakan.hpp"
 #include "./commands/Tanam.hpp"
-// #include "./commands/Ternak.hpp"
+#include "./commands/Ternak.hpp"
 // #include "./commands/BangunBangunan.hpp"
 #include "./commands/Makan.hpp"
 // #include "./commands/MemberiPangan.hpp"
-// #include "./commands/Membeli.hpp"
+#include "./commands/Membeli.hpp"
 // #include "./commands/Menjual.hpp"
 // #include "./commands/Memanen.hpp"
 // #include "./commands/Muat.hpp"
 // #include "./commands/Simpan.hpp"
 #include "./commands/TambahPemain.hpp"
-#include "../../utils/Exception.hpp"
+#include "../utils/Exception.hpp"
 
 #include <iostream>
 
@@ -36,6 +36,7 @@ Main::Main()
     currentPemain = 0;
 
     pemain = new vector<Pemain *>();
+    toko = new Toko(productData, animalData, plantData, bangunanData);
 
     menuController.showMenuAwal();
     menuController.opsiBacaState(*pemain);
@@ -46,11 +47,11 @@ Main::Main()
     commands["CETAK_LADANG"] = new CetakLadang();
     commands["CETAK_PETERNAKAN"] = new CetakPeternakan();
     commands["TANAM"] = new Tanam();
-    // commands["TERNAK"] = new Ternak();
+    commands["TERNAK"] = new Ternak();
     // commands["BANGUN_BANGUNAN"] = new BangunBangunan();
     commands["MAKAN"] = new Makan();
     // commands["KASIH_MAKAN"] = new MemberiPangan();
-    // commands["BELI"] = new Membeli();
+    commands["BELI"] = new Membeli();
     // commands["JUAL"] = new Menjual();
     // commands["PANEN"] = new Memanen();
     // commands["MUAT"] = new Muat();
@@ -68,6 +69,8 @@ Main::~Main()
     {
         delete p;
     }
+    delete pemain;
+    delete toko;
 }
 
 bool Main::getIsRunning()
@@ -126,4 +129,9 @@ vector<Animal *> *Main::getAnimalData()
 vector<Product> *Main::getProductData()
 {
     return &productData;
+}
+
+Toko *Main::getToko()
+{
+    return toko;
 }
