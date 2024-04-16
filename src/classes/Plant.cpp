@@ -10,6 +10,11 @@ Plant::~Plant()
 {
 }
 
+void Plant::setAge(int age)
+{
+    this->age = age;
+}
+
 int Plant::getDurationToHarvest()
 {
     return this->durationToHarvest;

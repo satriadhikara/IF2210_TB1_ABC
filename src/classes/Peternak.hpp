@@ -19,12 +19,14 @@ public:
 
     string getRole() override;
 
+    void setPeternakan(Peternakan *peternakan);
+
     void cetakPeternakan();
-    void ternak(const vector<Animal*>& animalData);
+    void ternak(const vector<Animal *> &animalData);
     void kasihMakan();
     void panen();
-    bool cekHewan(const vector<Animal*>& animalData, const string& kodeHuruf);
-    bool cekInventoryPeternak(const vector<Animal*>& animalData);
+    bool cekHewan(const vector<Animal *> &animalData, const string &kodeHuruf);
+    bool cekInventoryPeternak(const vector<Animal *> &animalData);
 };
 
 #endif

@@ -7,6 +7,11 @@
 #include "CarnivoreAnimal.hpp"
 #include "MaterialPlant.hpp"
 #include "FruitPlant.hpp"
+#include "Peternak.hpp"
+#include "Petani.hpp"
+#include "Walikota.hpp"
+#include "Peternakan.hpp"
+#include "Ladang.hpp"
 
 using namespace std;
 
@@ -269,5 +274,191 @@ void ConfigController::loadConfig(vector<Plant *> &plant, vector<Animal *> &anim
     else
     {
         throw "File bangunan.txt not found!";
+    }
+}
+
+void ConfigController::loadState(vector<Pemain *> &pemain, const string &filename, vector<Plant *> &plantData, vector<Animal *> &animalData, vector<Product> &productData, vector<Bangunan> &bangunanData)
+{
+    ifstream file("./configs/state.txt");
+    if (file.is_open())
+    {
+        string line;
+        getline(file, line);
+        int n = stoi(line);
+        for (int i = 0; i < n; i++)
+        {
+            // contructor
+            getline(file, line);
+            vector<string> tokens = String::split(line, ' ');
+            string username = tokens[0];
+            string role = tokens[1];
+            int gulden = stoi(tokens[2]);
+            int beratbadan = stoi(tokens[3]);
+
+            if (role == "Peternak")
+            {
+                pemain.push_back(new Peternak(username, gulden, beratbadan));
+            }
+            else if (role == "Petani")
+            {
+                pemain.push_back(new Petani(username, gulden, beratbadan));
+            }
+            else if (role == "Walikota")
+            {
+                pemain.push_back(new Walikota(username, gulden, beratbadan));
+            }
+            getline(file, line);
+            int penyimpananRow = stoi(line);
+            for (int j = 0; j < penyimpananRow; j++)
+            {
+                getline(file, line);
+                for (Plant *p : plantData)
+                {
+                    if (p->getNama() == line)
+                    {
+                        pemain[i]->tambahPenyimpanan(p->getKodeHuruf());
+                                        }
+                }
+                for (Animal *a : animalData)
+                {
+                    if (a->getNama() == line)
+                    {
+                        pemain[i]->tambahPenyimpanan(a->getKodeHuruf());
+                    }
+                }
+                for (Product p : productData)
+                {
+                    if (p.getNama() == line)
+                    {
+                        pemain[i]->tambahPenyimpanan(p.getKodeHuruf());
+                    }
+                }
+                for (Bangunan b : bangunanData)
+                {
+                    if (b.getNama() == line)
+                    {
+                        pemain[i]->tambahPenyimpanan(b.getKodeHuruf());
+                    }
+                }
+            }
+            if (role == "Peternak")
+            {
+                getline(file, line);
+                Peternak *peternak = dynamic_cast<Peternak *>(pemain[i]);
+                Peternakan *peternakan = new Peternakan(10, 10);
+                int peternakanRow = stoi(line);
+                for (int j = 0; j < peternakanRow; j++)
+                {
+                    getline(file, line);
+                    tokens = String::split(line, ' ');
+                    string slot = tokens[0];
+                    string kodeHewan = tokens[1];
+                    int weigth = stoi(tokens[2]);
+                    // cout << slot << " " << kodeHewan << " " << weigth << endl;
+                    Animal *temp;
+                    for (Animal *a : animalData)
+                    {
+                        if (a->getNama() == kodeHewan)
+                        {
+                            if (a->getType() == "Carnivore")
+                            {
+                                temp = new CarnivoreAnimal(a->getId(), a->getKodeHuruf(), a->getNama(), a->getPrice(), a->getWeightToHarvest());
+                                temp->setWeight(weigth);
+                            }
+                            else if (a->getType() == "Herbivore")
+                            {
+                                temp = new HerbivoreAnimal(a->getId(), a->getKodeHuruf(), a->getNama(), a->getPrice(), a->getWeightToHarvest());
+                                temp->setWeight(weigth);
+                            }
+                            else if (a->getType() == "Omnivore")
+                            {
+                                temp = new OmnivoreAnimal(a->getId(), a->getKodeHuruf(), a->getNama(), a->getPrice(), a->getWeightToHarvest());
+                                temp->setWeight(weigth);
+                            }
+                        }
+                    }
+
+                    int baris, kolom;
+
+                    size_t numPos = slot.find_first_of("0123456789");
+                    if (numPos == std::string::npos)
+                    {
+                        throw "Invalid slot format!";
+                    }
+
+                    kolom = 0;
+                    for (size_t i = 0; i < numPos; ++i)
+                    {
+                        kolom = kolom * 26 + (toupper(slot[i]) - 'A' + 1);
+                    }
+                    --kolom;
+
+                    baris = stoi(slot.substr(numPos)) - 1;
+
+                    peternakan->setAnimal(baris, kolom, temp);
+                    // cout << baris << " " << kolom << endl;
+
+                    // cout << temp->getNama() << endl;
+                    // cout << temp->getKodeHuruf() << endl;
+                }
+                peternak->setPeternakan(peternakan);
+            }
+            else if (role == "Petani")
+            {
+                getline(file, line);
+                Petani *petani = dynamic_cast<Petani *>(pemain[i]);
+                Ladang *ladang = new Ladang(10, 10);
+                int petakRow = stoi(line);
+                for (int j = 0; j < petakRow; j++)
+                {
+                    getline(file, line);
+                    tokens = String::split(line, ' ');
+                    string slot = tokens[0];
+                    string kodeTanaman = tokens[1];
+                    int age = stoi(tokens[2]);
+                    Plant *temp;
+                    for (Plant *p : plantData)
+                    {
+                        if (p->getNama() == kodeTanaman)
+                        {
+                            if (p->getType() == "MATERIAL_PLANT")
+                            {
+                                temp = new MaterialPlant(p->getId(), p->getKodeHuruf(), p->getNama(), p->getPrice(), p->getDurationToHarvest());
+                            }
+                            else if (p->getType() == "FRUIT_PLANT")
+                            {
+                                temp = new FruitPlant(p->getId(), p->getKodeHuruf(), p->getNama(), p->getPrice(), p->getDurationToHarvest());
+                            }
+                        }
+                        temp->setAge(age);
+                    }
+
+                    int baris, kolom;
+
+                    size_t numPos = slot.find_first_of("0123456789");
+                    if (numPos == std::string::npos)
+                    {
+                        throw "Invalid slot format!";
+                    }
+
+                    kolom = 0;
+                    for (size_t i = 0; i < numPos; ++i)
+                    {
+                        kolom = kolom * 26 + (toupper(slot[i]) - 'A' + 1);
+                    }
+                    --kolom;
+
+                    baris = stoi(slot.substr(numPos)) - 1;
+
+                    ladang->setPlant(baris, kolom, temp);
+                }
+                petani->setLadang(ladang);
+            }
+        }
+        file.close();
+    }
+    else
+    {
+        throw "File state.txt not found!";
     }
 }

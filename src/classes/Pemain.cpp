@@ -48,6 +48,7 @@ void Pemain::tambahPenyimpanan(string kode)
             if (this->penyimpanan->getElmt(i, j) == "")
             {
                 this->penyimpanan->setElmt(i, j, kode);
+                this->penyimpanan->incNEff();
                 return;
             }
         }

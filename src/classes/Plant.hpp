@@ -15,6 +15,7 @@ public:
     Plant(int id, string kodeHuruf, string nama, int price, int durationToHarvest);
     virtual ~Plant();
 
+    void setAge(int age);
     int getDurationToHarvest();
     virtual void panen();
     bool isSiapPanen();
