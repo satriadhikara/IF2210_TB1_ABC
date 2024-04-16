@@ -11,6 +11,7 @@ private:
     T **elmt;
     int row;
     int col;
+    int nEff;
 
 public:
     Matrix(int row, int col)
@@ -22,6 +23,7 @@ public:
         {
             this->elmt[i] = new T[col];
         }
+        this->nEff = 0;
     }
     ~Matrix()
     {
@@ -50,6 +52,12 @@ public:
     {
         return this->col;
     }
+
+    int getNEff()
+    {
+        return this->nEff;
+    }
+
     friend ostream &operator<<(ostream &os, Matrix &m)
     {
         int n_digit = to_string(m.getRow()).length();

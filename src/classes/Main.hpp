@@ -43,6 +43,7 @@ public:
     vector<Pemain *> *getPemain();
     vector<Plant *> *getPlantData();
     vector<Animal *> *getAnimalData();
+    vector<Product> *getProductData();
 
     friend istream &operator>>(istream &in, Main &main);
 };

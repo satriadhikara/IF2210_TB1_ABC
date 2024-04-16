@@ -54,14 +54,37 @@ void Pemain::tambahPenyimpanan(string kode)
     // }
 }
 
+Matrix<string> *Pemain::getPenyimpanan()
+{
+    return this->penyimpanan;
+}
+
 void Pemain::cetakPenyimpanan()
 {
     cout << *this->penyimpanan;
 }
 
-void Pemain::makan()
+void Pemain::makan(const vector<Product> &product, int row, int col)
 {
-    // TODO
+    if (this->penyimpanan->getElmt(row, col) == "")
+    {
+        throw "Kamu mengambil harapan kosong dari penyimpanan.";
+    }
+    else
+    {
+        for (Product p : product)
+        {
+            if (p.getKodeHuruf() == this->penyimpanan->getElmt(row, col))
+            {
+                this->beratbadan += p.getAddedWeight();
+                this->penyimpanan->setElmt(row, col, "");
+                cout << "Dengan lahapnya, kamu memakanan hidangan itu" << endl;
+                cout << "Alhasil, berat badan kamu naik menjadi " << this->beratbadan << endl;
+                return;
+            }
+        }
+        throw "Apa yang kamu lakukan??!! Kamu mencoba untuk memakan itu?!!\nSilahkan masukan slot yang berisi makanan.";
+    }
 }
 
 void Pemain::membeli()
